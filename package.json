@@ -1,0 +1,24 @@
+{
+  "name": "projetofinal_reprograma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tereza25/projetoFinal_reprograma.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tereza25/projetoFinal_reprograma/issues"
+  },
+  "homepage": "https://github.com/Tereza25/projetoFinal_reprograma#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
