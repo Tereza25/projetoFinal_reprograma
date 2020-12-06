@@ -6,6 +6,10 @@ router.get("/", controller.getAllCandidates)
 
 router.post("/", controller.createCandidate)
 
+router.get("/:id", controller.getCandidate)
+
+router.put("/:id", controller.updateCandidate)
+
 
 
 module.exports = router;

@@ -21,15 +21,48 @@ const createCandidate = (req, res) => {
     })
 }
 
+const getCandidate = (req, res) => {
+    const candidateId = req.params.id
+    const candidateFound = candidates.find((candidate) => candidate.id == candidateId)
+    if (candidateFound) {
+        res.status(200).send(candidateFound)
+    } else {
+        res.status(404).send({ message: "Candidato não encontrado" })
+    }
+}
 
+const updateCandidate = (req, res) => {
+    try {
+        const candidateId = req.params.id
+        const candidateToUpdate = req.body //Pego o corpo da requisição com as alterações 
 
+        const candidateFound = candidates.find(candidate => candidate.id == candidateId) // separo o candidato que irei atualizar      
+        const candidateIndex = candidates.indexOf(candidateFound) // separo o indice do candidato no array de candidatos
 
+        if (candidateIndex >= 0) { // verifico se o candidato existe no array de candidatos
+            candidates.splice(candidateIndex, 1, candidateToUpdate) //busco no array o candidato, excluo o registro antigo e substituo pelo novo 
+        } else {
+            res.status(404).send({ message: "Candidato não encontrado para ser atualizado" })
+        }
 
-
-
+        fs.writeFile("./src/models/candidates.json", JSON.stringify(candidates), 'utf8', function (err) { // gravo meu json de candidatos atualizado
+            if (err) {
+                res.status(500).send({ message: err }) // caso dê erro retorno status 500
+            } else {
+                console.log("Arquivo de candidatos atualizado com sucesso!")
+                const candidateUpdated = candidates.find(candidate => candidate.id == candidateId) // separo o filme que modifiquei no array
+                res.status(200).send(candidateUpdated) // envio o candidato modificado como resposta
+            }
+        })
+    } catch (err) {
+        res.status(500).send({ message: err }) // caso dê erro retorno status 500
+    }
+}
 
 
 module.exports = {
     createCandidate,
+    updateCandidate, 
+    getCandidate,
     getAllCandidates,
-}
+} 
