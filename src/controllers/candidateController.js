@@ -1,11 +1,25 @@
 const candidates = require("../models/candidates.json")
+const fs = require("fs")
 
 const getAllCandidates = (req, res) => {
     console.log(req.url)
-    res.status(200).send(candidates)
-}
+    console.log("Minha query string:")
+    console.log(req.query)
+    const deficiency = req.query.deficiency
+    const area = req.query.area
+    if (deficiency) {
+        const candidatesByDeficiency = candidates.filter(candidate => candidate.deficiency.includes(deficiency))
+        res.status(200).send(candidatesByDeficiency)
+    } 
+    if (area) {
+        const candidatesByArea = candidates.filter(candidate => candidate.area.includes(area))
+        res.status(200).send(candidatesByArea)
+    } else {
+        res.status(200).send(candidates)
 
-const fs = require("fs")
+    }
+    
+}
 
 const createCandidate = (req, res) => {
     const { id, name, birth, genre, deficiency, breed, city, schooling, language, experience, area, phone, email, status} = req.body
@@ -59,10 +73,70 @@ const updateCandidate = (req, res) => {
     }
 }
 
+const updateExperienceStatus = (req, res) => {
+    try {
+        const candidateId = req.params.id // pego a informação do id no parametro da requisição
+        const newExperience = req.body.experience // pego a informação de watched no corpo da requisição. Ele terá valor true ou false, dependendo do que tiver sido passado
+
+        const candidateToUpdate = candidates.find(candidate => candidate.id == candidateId) // separo o filme que irei mudar o status
+        const candidateIndex = candidates.indexOf(candidateToUpdate) // identifico o índice do filme no meu array
+
+        if (candidateIndex >= 0) {
+            // achei o filme
+            candidateToUpdate.experience = newExperience // atribuo o novo status
+            candidates.splice(candidateIndex, 1, candidateToUpdate) 
+            fs.writeFile("./src/models/candidates.json", JSON.stringify(candidates), 'utf8', function (err) {
+                if (err) {
+                    res.status(500).send(err)
+                } else {
+                    console.log("Arquivo de candidato foi atualizado com sucesso!")
+                    const candidateUpdated = candidates.find(candidate => candidate.id == candidateId)
+                    res.status(200).send(candidateUpdated)
+                }
+            })
+        } else {
+            
+            res.status(400).send({ message: "Candidato não encontrado para atualizar o status de experiencia" })
+        }
+    } catch (err) {
+        console.log(err)
+        res.status(500).send("Erro na api")
+    }
+
+}
+
+const deleteCandidate = (req, res) => {
+    try {
+        const candidateId = req.params.id
+        const candidateFound = candidates.find(candidate => candidate.id == candidateId) 
+        const candidateIndex = candidates.indexOf(candidateFound) 
+
+        if (candidateIndex >= 0) { 
+            candidates.splice(candidateIndex, 1) 
+        } else {
+            res.status(404).send({ message: "Candidato não encontrado para ser deletado" })
+        }
+
+        fs.writeFile("./src/models/candidates.json", JSON.stringify(candidates), 'utf8', function (err) { 
+            if (err) {
+                res.status(500).send({ message: err })
+            } else {
+                console.log("Candidato deletado com sucesso do arquivo!")
+                res.sendStatus(204)
+            }
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(500).send({ message: "Erro ao deletar o candidato" })
+    }
+}
+          
 
 module.exports = {
     createCandidate,
+    deleteCandidate,
     updateCandidate, 
+    updateExperienceStatus,  
     getCandidate,
     getAllCandidates,
 } 
