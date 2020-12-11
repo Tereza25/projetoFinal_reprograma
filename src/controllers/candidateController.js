@@ -64,7 +64,7 @@ const updateCandidate = (req, res) => {
                 res.status(500).send({ message: err }) // caso dê erro retorno status 500
             } else {
                 console.log("Arquivo de candidatos atualizado com sucesso!")
-                const candidateUpdated = candidates.find(candidate => candidate.id == candidateId) // separo o filme que modifiquei no array
+                const candidateUpdated = candidates.find(candidate => candidate.id == candidateId) // separo o candidato que modifiquei no array
                 res.status(200).send(candidateUpdated) // envio o candidato modificado como resposta
             }
         })
@@ -76,13 +76,13 @@ const updateCandidate = (req, res) => {
 const updateExperienceStatus = (req, res) => {
     try {
         const candidateId = req.params.id // pego a informação do id no parametro da requisição
-        const newExperience = req.body.experience // pego a informação de watched no corpo da requisição. Ele terá valor true ou false, dependendo do que tiver sido passado
+        const newExperience = req.body.experience // pego a informação de experience no corpo da requisição. Ele terá valor true ou false, dependendo do que tiver sido passado
 
-        const candidateToUpdate = candidates.find(candidate => candidate.id == candidateId) // separo o filme que irei mudar o status
-        const candidateIndex = candidates.indexOf(candidateToUpdate) // identifico o índice do filme no meu array
+        const candidateToUpdate = candidates.find(candidate => candidate.id == candidateId) // separo o candidato que irei mudar o status
+        const candidateIndex = candidates.indexOf(candidateToUpdate) // identifico o índice do candidato no meu array
 
         if (candidateIndex >= 0) {
-            // achei o filme
+            // achei o candidato
             candidateToUpdate.experience = newExperience // atribuo o novo status
             candidates.splice(candidateIndex, 1, candidateToUpdate) 
             fs.writeFile("./src/models/candidates.json", JSON.stringify(candidates), 'utf8', function (err) {

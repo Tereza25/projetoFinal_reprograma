@@ -1,11 +1,16 @@
 const express = require("express")
+const bodyParser = require("body-parser")
+const mongoose = require("mongoose")
+
 const app = express()
 
-app.use(express.json())
+mongoose.connect("mongodb://localhost:27017/reprograma", { useNewUrlParser: true , useUnifiedTopology: true });
 
 
 const index = require("./routes/index")
 const candidates = require("./routes/candidates")
+
+app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     res.header("Acces-Control-Alow-Origin", "*")
