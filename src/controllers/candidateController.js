@@ -1,26 +1,14 @@
-const candidates = require("../models/candidates.json")
-const fs = require("fs")
+const candidates = require("../models/candidates")
 
 
+
+//http://localhost:3000/companies na rota GET
 const getAllCandidates = (req, res) => {
-    console.log(req.url)
-    console.log("Minha query string:")
-    console.log(req.query)
-    const deficiency = req.query.deficiency
-    const area = req.query.area
-    if (deficiency) {
-        const candidatesByDeficiency = candidates.filter(candidate => candidate.deficiency.includes(deficiency))
-        res.status(200).send(candidatesByDeficiency)
-    } 
-    if (area) {
-        const candidatesByArea = candidates.filter(candidate => candidate.area.includes(area))
-        res.status(200).send(candidatesByArea)
-    } else {
-        res.status(200).send(candidates)
-
-    }
-    
-}
+    console.log(req.url);
+    candidates.find(function(err, candidates){
+      res.status(200).send(candidates);
+    })
+  };
 
 const createCandidate = (req, res) => {
     const { id, name, birth, genre, deficiency, breed, city, schooling, language, experience, area, phone, email, status} = req.body
@@ -38,13 +26,10 @@ const createCandidate = (req, res) => {
 
 const getCandidate = (req, res) => {
     const candidateId = req.params.id
-    const candidateFound = candidates.find((candidate) => candidate.id == candidateId)
-    if (candidateFound) {
-        res.status(200).send(candidateFound)
-    } else {
-        res.status(404).send({ message: "Candidato não encontrado" })
-    }
-}
+    candidates.find({ id }, function(err, candidates){
+        res.status(200).send(candidates);
+      })
+    };
 
 const updateCandidate = (req, res) => {
     try {

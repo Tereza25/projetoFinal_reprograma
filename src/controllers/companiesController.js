@@ -1,26 +1,13 @@
-const companies = require("../models/companies.json")
-const fs = require("fs")
+const companies = require("../models/companies")
+
 
 //http://localhost:3000/companies na rota GET
 const getAllCompanies = (req, res) => {
-    console.log(req.url)
-    console.log("Minha query string:")
-    console.log(req.query)
-    const occupationArea = req.query.occupationArea
-    const city = req.query.city
-    if (occupationArea) {
-        const companiesByOccupationArea = companies.filter(company => company.occupationArea.includes(occupationArea))
-        res.status(200).send(companiesByOccupationArea)
-    } 
-    if (city) {
-        const companiesByCity = companies.filter(company => company.city.includes(city))
-        res.status(200).send(companiesByCity)
-    } else {
-        res.status(200).send(companies)
-
-    }
-    
-}
+    console.log(req.url);
+    companies.find(function(err, companies){
+      res.status(200).send(companies);
+    })
+  };
 
 //http://localhost:3000/companies na rota POST
 const createCompany = (req, res) => {
@@ -40,13 +27,10 @@ const createCompany = (req, res) => {
 // http://localhost:3000/companies/5
 const getCompany = (req, res) => {
     const companyId = req.params.id
-    const companyFound = companies.find((company) => company.id == companyId)
-    if (companyFound) {
-        res.status(200).send(companyFound)
-    } else {
-        res.status(404).send({ message: "Empresa não encontrada" })
-    }
-}
+    companies.find({ id }, function(err, companies){
+        res.status(200).send(companies);
+      })
+    };
 
 const updateCompany = (req, res) => {
     try {
