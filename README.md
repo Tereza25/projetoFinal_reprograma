@@ -1,6 +1,10 @@
-<img src="IMG/pcdrive1" alt="Logotipo pcdrive">
+
 
 # Projeto Final - {reprograma}
+
+<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src="IMG/pcdrive1" alt="Logotipo pcdrive"></center>
+
+
 -----------------------
 O projeto PCDrive foi criado visando ajudar pessoas com deficiência que procuram oportunidades de emprego, diante da grande dificuldade motivada pela falta de programas de inclusão e o pouco conhecimento das empresas em saber como encontrar e recrutar candidates com deficiência.
 
