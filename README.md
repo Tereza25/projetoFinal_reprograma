@@ -1,6 +1,7 @@
-# Projeto Final - {reprograma}
-------------------------
+<img src="IMG/pcdrive1" alt="Logotipo pcdrive">
 
+# Projeto Final - {reprograma}
+-----------------------
 O projeto PCDrive foi criado visando ajudar pessoas com deficiência que procuram oportunidades de emprego, diante da grande dificuldade motivada pela falta de programas de inclusão e o pouco conhecimento das empresas em saber como encontrar e recrutar candidates com deficiência.
 
 A API irá armazenar dados importantes de candidatxs, suficiente para suprir as informações necessárias para uma empresa se interessar e contactar para participar de um processo seletivo. Também irá armazenar dados das empresas cadastradas e que querem divulgar seu interesse em investir na diversidade.
