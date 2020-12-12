@@ -10,14 +10,14 @@ Será utilizado duas schemas:
 | CANDIDATE     | EMPRESAS       |
 | ------------- | -------------- |
 | id            |  id            |
-| name          |  company Name  |
-| birth         |  fantasy name  |
+| name          |  companyName   |
+| birth         |  fantasyName   |
 | genre         |  cnpj          |
-| deficiency    |  occupationArea |
+| deficiency    |  occupationArea|
 | breed         |  city          |
 | city          |  phone         | 
 | schooling     |  email         |
-| language      |      -         |
+| language      |  userName      |
 | experience    |      -         |
 | area          |      -         |
 | phone         |      -         |
