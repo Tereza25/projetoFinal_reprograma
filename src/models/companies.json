@@ -1,47 +1,70 @@
 [
-    {   
+    {
         "id": 1,
         "companyName": "Centro de Integracao Empresa-Escola de Pernambuco",
         "fantasyName": "CIEE-PE",
         "cnpj": "10.998.292/0001-57",
-        "occupationArea": ["Filantrópico", "Educacional"],
+        "occupationArea": [
+            "Filantrópico",
+            "Educacional"
+        ],
         "city": "Recife",
         "phone": "8130090002",
         "email": "user@ciee-pe.org.br",
         "userName": "Antonio Brandao"
     },
-    {   
+    {
         "id": 2,
         "companyName": "Companhia Energetica de Pernambuco",
         "fantasyName": "CELPE",
         "cnpj": "10.835.932/0001-08",
-        "occupationArea": ["Distribuição", "Comercialização", "Prestadoras de serviço"],
+        "occupationArea": [
+            "Distribuição",
+            "Comercialização",
+            "Prestadoras de serviço"
+        ],
         "city": "Recife",
         "phone": "8130090002",
         "email": "user@celpe.com.br",
         "userName": "Marcio Chagas"
     },
-    {   
+    {
         "id": 3,
         "companyName": "Faculdade de Olinda",
         "fantasyName": "FOCCA",
         "cnpj": "35.618.040/0001-86",
-        "occupationArea": ["Educacional"],
+        "occupationArea": [
+            "Educacional"
+        ],
         "city": "Olinda",
         "phone": "8130090002",
         "email": "user@focca.com.br",
         "userName": "Joao Alberto"
     },
-    {   
+    {
         "id": 4,
         "companyName": "Enotel - Hotels & Resorts S/A",
         "fantasyName": "Enotel Acqua Club",
         "cnpj": "03.787.288/0004-27",
-        "occupationArea": ["Hotelaria"],
+        "occupationArea": [
+            "Hotelaria"
+        ],
         "city": "Ipojuca",
         "phone": "8139990000",
         "email": "user@enotel.com.br",
         "userName": "Mariana Alburquerque"
+    },
+    {
+        "id": 5,
+        "companyName": "Alpha Plast-Industria e Comercio LTDA",
+        "fantasyName": "Alpha Plast-Indústria e Comércio",
+        "cnpj": "03.357.873/0001-44",
+        "occupationArea": [
+            "indústria"
+        ],
+        "city": "Jaboatão",
+        "phone": "8121020000",
+        "email": "user@alphaplast.com.br",
+        "userName": "Carla Medeiros"
     }
-
 ]

@@ -1,6 +1,7 @@
 const candidates = require("../models/candidates.json")
 const fs = require("fs")
 
+
 const getAllCandidates = (req, res) => {
     console.log(req.url)
     console.log("Minha query string:")
