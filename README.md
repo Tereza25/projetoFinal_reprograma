@@ -2,7 +2,8 @@
 
 # Projeto Final - {reprograma}
 
-<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src="IMG/pcdrive1" alt="Logotipo pcdrive"></center>
+<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src="./IMG/pcdrive1.png" alt="Logotipo pcdrive"></center>
+
 
 
 -----------------------
