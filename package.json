@@ -2,6 +2,9 @@
   "name": "projetofinal_reprograma",
   "version": "1.0.0",
   "description": "<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src=\"./IMG/pcdrive1.png\" alt=\"Logotipo pcdrive\"></center>",
+  "engines": {
+    "node": "10.19.0"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
