@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src=\"./IMG/pcdrive1.png\" alt=\"Logotipo pcdrive\"></center>",
   "main": "server.js",
-  "engines" : { "node" : "12.18.3" },
+  "engines" : { "node" :">=12.18.3" },
   
     "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
