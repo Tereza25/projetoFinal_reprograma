@@ -3,11 +3,11 @@ const router = express.Router()
 const controller = require("../controllers/companiesController")
 
 router.get("/", controller.getAllCompanies)
-router.post("/", controller.createCompany)
 router.get("/:id", controller.getCompany)
-router.put("/:id", controller.updateCompany)
-router.patch("/:id/userName", controller.updateUserName)
+router.get("/city", controller.getCity)
+router.post("/", controller.createCompany)
 router.delete("/:id", controller.deleteCompany)
+router.put("/:id", controller.updateCompany)
 
 
 module.exports = router;

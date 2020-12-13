@@ -3,17 +3,12 @@ const router = express.Router()
 const controller = require("../controllers/candidateController")
 
 router.get("/", controller.getAllCandidates)
-
-router.post("/", controller.createCandidate)
-
 router.get("/:id", controller.getCandidate)
-
-router.put("/:id", controller.updateCandidate)
-
-router.patch("/:id/experience", controller.updateExperienceStatus)
-
+router.get("/area", controller.getPorArea)
+router.get("/experience", controller.getExperience)
+router.post("/", controller.createCandidate)
 router.delete("/:id", controller.deleteCandidate)
-
+router.put("/:id", controller.updateCandidate)
 
 module.exports = router;
 
