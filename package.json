@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "<center><Logotipo com o nome pcdrive com fundo branco e letras de cor verde e sombreamento escuro><img src=\"./IMG/pcdrive1.png\" alt=\"Logotipo pcdrive\"></center>",
   "main": "server.js",
- 
-    "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
@@ -27,8 +26,7 @@
     "nodemon": "^2.0.6"
   },
   "engines": {
-    "node": "15.4.0",
-    "npm": "6.14.16"
+    "node": "15.4.0"
   },
   "devDependencies": {},
   "keywords": []
