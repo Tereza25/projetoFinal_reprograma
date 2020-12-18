@@ -75,7 +75,7 @@ No usuário Companies, os métodos e rotas serão:
 |------- | ------------     | ------------------------------|
 |GET     | /companies       |   Exibir todas as empresas    |
 |GET     | /companies:id    |   Exibir empresas por ID      |
-|GET     | /companies/city) |   Exibir por cidade           |
+|GET     | /companies/city  |   Exibir por cidade           |
 |POST    | /companies       |   Cadastrar empresas          | 
 |DELETE  | /companies:id    |   Excluir empresas            |
 |PUT     | /companies:id    |   Alterar/atualizar empresas  |
@@ -110,4 +110,4 @@ No usuário Companies, os métodos e rotas serão:
 
 *fonte:https://www.catho.com.br/carreira-sucesso/colunistas/noticias/obstaculos-da-inclusao-pcd-no-mercado-de-trabalho/*
 
-#### readme em processo de finalização
+#### Projeto apresentado no dia 13/12/2020, projeto em processo de modificação.
